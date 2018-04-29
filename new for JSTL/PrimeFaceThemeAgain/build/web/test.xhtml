@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/template.xhtml">
+    <ui:define name="content">
+
+        <h1 class="abc">
+            regestration </h1>
+
+        <h:form>
+            <p:panelGrid columns="2">
+                <h:outputLabel value="First Name"/><p:inputText/>
+                <h:outputLabel value="last Name"/><p:inputText/>
+                <h:outputLabel value="full Name"/><p:inputText/>
+                <h:outputLabel value="phone"/>
+                <p:inputMask value="#{maskController.phone}" mask="(999) 999-9999"/><br/>
+
+
+                <p:inputTextarea value="#{inputTextAreaController.value}" autoResize="true"/>
+                <p:autoComplete id="simple" value="#{autoCompleteController.txt1}"
+                                completeMethod="#{autoCompleteController.complete}"/>
+                <p:inputMask value="#{maskController.phone}" mask="(999) 999-9999"/><br/>
+                <p:inputMask value="#{maskController.productKey}" mask="a999-a9"/><br/>
+                <p:inputMask value="#{maskController.productKey}" mask="a*-99999-a9"/><br/>
+                <p:inputMask value="#{maskController.phone}" mask="(999) 999-99999" placeHolder="x"/><br/>
+                <p:inputMask value="#{maskController.phone}" mask="(999) 999-99999" placeHolder="x"/><br/>
+                <p:inputMask value="#{maskController.phoneExt}" mask="(999) 999-9999? x9999"/><br/>
+            </p:panelGrid>
+            <p:commandButton value="submit" id="save"/>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
+

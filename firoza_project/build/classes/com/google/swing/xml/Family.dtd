@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/Family.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE Family SYSTEM "Family.dtd">
+
+    <Family>
+    ...
+    </Family>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Family (Members)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Members (name|gifts)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT name (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT gifts (#PCDATA)>

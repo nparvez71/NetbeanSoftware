@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    Welcome to PrimeFaces
+                    <h:form id="jkl">
+                        <p:panel id="pnl" header="Dragable panel by settings">
+                            <h:outputText value="Drag me around"/>
+                        </p:panel>
+                        <p:draggable for="pnl"/>
+                        <p:panel id="hpnl" header="Dragable panel by Handle">
+                            <h:outputText value="I Can Only Drag by header"/>
+                        </p:panel>
+                        <p:draggable for="hpnl" handle=".ui-panel-titlebar"/>
+
+
+
+
+                        <h:panelGroup id="snaptarget" layout="block"
+                                      styleClass="ui-widget-content"
+                                      style="height:150px;width:450px;">
+                            <p class="ui-widget-header" style="margin:0;padding:5px;">
+                                I'm a snap target to play with me
+                            </p>
+                            <p:draggable/>
+                        </h:panelGroup>
+
+                        <h:panelGroup id="defsnap" layout="block"
+                                      styleClass="dragSnap ui-widget-content"
+                                      style="height:100px;width:150px;">
+                            <p class="ui-widget-header" style="margin:0;padding:5px;">
+                                I'm with default snap and snap to all edges
+                                of other draggable elements</p>
+                        </h:panelGroup>
+                        <p:draggable for="defsnap" snap="true"/>
+
+                        <h:panelGroup id="outersnap" layout="block"
+                                      styleClass="dragSnap ui-widget-content" 
+                                      style="height:100px;width:150px;">
+                            <p>I only snap to the outer edges - try with the big box</p>
+                        </h:panelGroup>
+                        <p:draggable for="outersnap" snap="true" snapMode="outer"/>
+
+                        <h:panelGroup id="innersnap" layout="block"
+                                      styleClass="dragSnap ui-widget-content"
+                                      style="height:100px;width:150px;">
+                            <p>I only snap to the inner edges - try with the big box</p>
+                        </h:panelGroup>
+                        <p:draggable for="innersnap" snap="true"
+                                     snapMode="inner" snapTolerance="15"/>
+                    </h:form>
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

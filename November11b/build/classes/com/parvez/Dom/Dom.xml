@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<company>
+    <staff staff="1">
+        <firstname>Nur.Mohammad</firstname>
+        <lastname>parvez</lastname>
+        <nickname>Mia</nickname>
+        <salary>15000</salary>
+        <height>5.6inch</height>
+    </staff>
+</company>

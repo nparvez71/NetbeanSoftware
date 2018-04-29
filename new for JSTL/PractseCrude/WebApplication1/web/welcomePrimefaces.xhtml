@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    Welcome to PrimeFaces
+
+                    <h:form>
+                        <p:commandButton value="Add user" oncomplete="PF('reg').show()"/>
+                        <p:dataTable value="#{userBean.getAllUsers()}" var="user">
+                            <p:column headerText="User_id">
+                                <h:outputText value="#{user.id}"/>
+                            </p:column>
+                            <p:column headerText="User_name">
+                                <h:outputText value="#{user.username}"/>
+                            </p:column>
+                            <p:column headerText="Password">
+                                <h:outputText value="#{user.password}"/>
+                            </p:column>
+                            <p:column headerText="Update">
+                                <p:commandButton value="Update" ajax="true" update=":udetails"
+                                                 oncomplete="PF('update').show()"
+                                                 actionListener="#{userBean.changeUser(user)}"/>
+                            </p:column>
+                            <p:column headerText="Delete">
+                                <p:commandButton value="delete" action="#{userBean.delete(user)}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form> 
+
+
+                    <p:dialog header="regestration" widgetVar="reg">
+                        <h:form>
+                            <p:panelGrid columns="2">
+                                <p:outputLabel value="UserName"/>
+                                <p:inputText value="#{userBean.user.username}"/>
+                                <p:outputLabel value="password"/>
+                                <p:inputText value="#{userBean.user.password}"/>
+                                <p:commandButton value="save" action="#{userBean.addUser()}"/>
+                            </p:panelGrid>
+                        </h:form>
+
+                    </p:dialog>
+
+
+
+                    <p:dialog id="udetails" header="Update" widgetVar="update">
+                        <h:form>
+                            <p:panelGrid columns="2">
+                                <p:outputLabel value="UserName"/>
+                                <p:inputText value="#{userBean.user.username}"/>
+                                <p:outputLabel value="password"/>
+                                <p:inputText value="#{userBean.user.password}"/>
+                                <p:commandButton value="save" action="#{userBean.update(userBean.user)}"/>
+                            </p:panelGrid>
+                        </h:form>
+
+                    </p:dialog>
+
+
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

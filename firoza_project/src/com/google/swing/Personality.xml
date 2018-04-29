@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE Students SYSTEM "Personality.dtd">
+
+
+<Students>
+    <student>
+        <name>firoza</name> 
+        <id>1001</id>
+        <age>27</age>
+        <email>firozaajahan@gmail.com</email> 
+    
+    </person>
+    
+    <person>
+        <name>firoz</name> 
+        <id>1002</id> 
+        <age>39</age>
+        <email>firozajahan@gmail.com</email>
+    
+    </student>
+    
+    
+</Students>

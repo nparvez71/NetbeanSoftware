@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Circle SYSTEM "Circle01.dtd">
+
+<Circle>
+    <Radius>15</Radius>
+    <Position>
+        <X-coordinate>30</X-coordinate>  
+        <Y-coordinate>30</Y-coordinate> 
+    </Position>
+    
+</Circle>

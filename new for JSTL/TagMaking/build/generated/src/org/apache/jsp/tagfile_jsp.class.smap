@@ -1,0 +1,12 @@
+SMAP
+tagfile_jsp.java
+JSP
+*S JSP
+*F
++ 0 tagfile.jsp
+tagfile.jsp
+*L
+5,13:49
+17:83,4
+17,3:64
+*E

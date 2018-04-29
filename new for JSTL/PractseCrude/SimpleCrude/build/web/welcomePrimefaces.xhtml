@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+
+
+                </p:layoutUnit>
+
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Home" outcome="index.xhtml"/>
+                            <p:menuitem value="CRUD" outcome="welcomePrimefaces.xhtml"/>
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+
+                    <h:form>
+                        <p:commandButton value="Add Workers" oncomplete="PF('reg').show()"/>
+
+                        <p:dataTable value="#{workersBean.getAllWorkers()}" var="workers">
+                            <p:column headerText="Worhers_id">
+                                <h:outputText value="#{workers.id}"/>
+                            </p:column>
+                            <p:column headerText="Worhers_Name">
+                                <h:outputText value="#{workers.name}"/>
+                            </p:column>
+                            <p:column headerText="Worhers_address">
+                                <h:outputText value="#{workers.address}"/>
+                            </p:column>
+
+                            <p:column headerText="Update">
+
+                                <p:commandButton 
+                                    value="Update"
+                                    actionListener="#{workersBean.changeWorkers(workers)}"
+                                    ajax="true"
+                                    update=":stdetails"
+                                    oncomplete="PF('update').show()"/>
+
+                            </p:column>
+
+                            <p:column headerText="Delete">
+                                <p:commandButton value="delete" action="#{workersBean.deleteWorkers(workers)}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+
+
+                    <!--registration-->
+                    <p:dialog header="reg form" widgetVar="reg">
+                        <h:form>
+                            <p:panelGrid columns="2">
+                                <p:outputLabel value="Name" for="name"/>
+                                <p:inputText value="#{workersBean.workers.name}" id="name"/>
+                                <p:outputLabel value="Address" for="address"/>
+                                <p:inputText value="#{workersBean.workers.address}" id="address"/>
+                                <h:inputHidden/>
+                                <p:commandButton value="save" action="#{workersBean.addWorkers()}"/>
+                            </p:panelGrid>
+                        </h:form>
+                    </p:dialog>
+
+                    <!--Update Purpose-->
+                    <p:dialog
+                        id="stdetails"
+                        header="Update Form"
+                        widgetVar="update">
+                        <h:form>
+                            <p:panelGrid columns="2">
+                                <p:outputLabel value="Name" for="name"/>
+                                <p:inputText value="#{workersBean.workers.name}" id="name"/>
+
+                                <p:outputLabel value="Address" for="address"/>
+                                <p:inputText value="#{workersBean.workers.address}" id="address"/>
+
+                                <h:inputHidden/>
+                                <p:commandButton value="Update" action="#{workersBean.updatWorkers(workersBean.workers)}"/>
+                            </p:panelGrid>
+                        </h:form>
+                    </p:dialog>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

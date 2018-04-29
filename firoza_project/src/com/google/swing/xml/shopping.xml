@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE Shoppings SYSTEM "shopping.dtd">
+
+
+<Shoppings>
+    <Kenakata>
+     <name>Ammu</name> 
+     <product>earing</product>  
+        
+    </Kenakata>
+    
+     <Kenakata>
+     <name>Abbu</name> 
+     <product>panjabi</product>  
+        
+    </Kenakata>
+    
+</Shoppings>

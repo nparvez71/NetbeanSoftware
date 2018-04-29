@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE Students SYSTEM "StudentsAdd.dtd">
+
+
+
+<Students>
+    <Student>
+     <name>firoza</name> 
+        <id>1001</id>
+        <age>27</age>
+        <email>firozaajahan@gmail.com</email> 
+       
+    </Student>
+    
+     <Student>
+     <name>firoza</name> 
+        <id>1001</id>
+        <age>27</age>
+        <email>firozaajahan@gmail.com</email> 
+       
+    </Student>
+    
+</Students>

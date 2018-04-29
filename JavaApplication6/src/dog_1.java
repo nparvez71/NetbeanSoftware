@@ -1,0 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author J2EE-33
+ */
+public class dog extends Dog {
+
+    public dog(String name, int i, double d) {
+    }
+    
+}
